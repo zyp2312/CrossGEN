@@ -1,0 +1,91 @@
+anchor_lambda: 0.5
+aug_model:
+  dropout: 0.1
+  hidden_dim: 64
+  input_dim: 1
+  latent_dim: 64
+  num_layers: 2
+aug_model_name: CG
+aug_node: true
+balanced_loss: false
+batch_norm: false
+batch_size: 16
+data_root: datasets/raw_data/PEMS03/
+dataset_name: PEMS03
+device: cuda
+drop_node: false
+dropout: 0.2
+dynamic_graph: true
+dynamic_mix: true
+embedding_loss: false
+epochs: 100
+fst_loss: true
+full_metrics: true
+gamma: 0.5
+graph:
+  hidden_dim: 64
+  node2edge_type: cosine
+graph_learning: true
+gumbel_softmax: true
+gumbel_tau: 1
+horizon: 12
+if_grad_aug: false
+input_size: 1
+is_vae: false
+lr: 0.002
+mask_node_loss: false
+milestones:
+- 1
+- 30
+- 50
+mode: train
+model:
+  K: 2
+  bias: true
+  hidden_channels: 64
+  in_channels: 1
+  kernel_size: 3
+  normalization: sym
+  num_nodes: 358
+  out_channels: 12
+model_file: model_best.pt
+model_name: STGCN_n
+networks_name: adj_PEMS03.pkl
+no_graph: false
+node_seed: 0
+num_nodes: 358
+optimizer: Adam
+processed_root: data/
+random_graph: false
+rstl: false
+save_dir: ./ckpts
+seed: 0
+sim_loss: true
+sparse_threshold: 0.9
+split_ratio:
+- 0.6
+- 0.2
+- 0.2
+tolerance: 20
+train_node_ratio: 0.25
+train_normalized: false
+vae:
+  dropout: 0.1
+  hidden_dim: 64
+  input_dim: 1
+  latent_dim: 64
+  num_layers: 2
+  variance: 0.1
+vae_epochs: 0
+vae_loss_weight: 2
+val_node_ratio: 0
+values_name: PEMS03_1feat.npz
+wandb: false
+wandb_name:
+- model_name
+- dataset_name
+- seed
+- node_seed
+wandb_project: InductiveST
+weight_decay: 0.0001
+window_size: 24
